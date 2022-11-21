@@ -88,7 +88,8 @@ export default {
 
 <style lang="scss" scoped>
 .store-container {
-  padding: 0 5vw;
+  width: 100%;
+  padding-bottom: 80px;
 }
 
 .header {
@@ -96,30 +97,28 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 10%;
+  box-sizing: border-box;
 }
 
 .cart-summary {
-  width: 200px;
   align-items: center;
   justify-content: flex-end;
   background: green;
   color: white;
   padding: 10px;
   cursor: pointer;
+
   a {
+    text-align: center;
     text-decoration: none;
     color: inherit;
   }
 }
 
-h3 {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 ul,
 li {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
   list-style-type: none;
@@ -127,27 +126,56 @@ li {
 
 ul {
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  margin: 20px 0 0 0;
+  display: grid;
+  column-gap: 20px;
+  row-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0 10%;
+  @media (min-width: 1421px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 1420px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 1080px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 660px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 li {
+  width: 100%;
+  box-sizing: border-box;
   position: relative;
-  width: 200px;
   padding: 20px;
   border: 1px solid green;
-  margin: 0 20px 20px 0;
+  margin: 0;
   cursor: default;
+
+  h3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-align: center;
+  }
 }
 
 img {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
   display: block;
   margin: 0 auto;
 }
 
 .add-to-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-top: 1px dashed green;
   padding-top: 10px;
   cursor: pointer;
